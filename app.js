@@ -1,7 +1,7 @@
 // Initialize Supabase (replace with your keys later)
 const supabaseUrl ='https//rsficxyvgjszmhbjcglb.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJzZmljeHl2Z2pzem1oYmpjZ2xiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc5MDM4OTUsImV4cCI6MjA2MzQ3OTg5NX0.ZN7suQbI9ZN9JaowunSsKHNqNFu8cLVmyIDTQjHtVec';
-const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+const supabase = supabase.createClient( 'https://rsficxyvgjszmhbjcglb.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJzZmljeHl2Z2pzem1oYmpjZ2xiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc5MDM4OTUsImV4cCI6MjA2MzQ3OTg5NX0.ZN7suQbI9ZN9JaowunSsKHNqNFu8cLVmyIDTQjHtVec');
 
 // DOM Elements
 const loginScreen = document.getElementById('loginScreen');
