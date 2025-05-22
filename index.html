@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Idly Hub Workers</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Login Screen -->
+    <div id="loginScreen">
+      <h1>Worker Login</h1>
+      <input type="email" id="email" placeholder="your@email.com">
+      <button id="loginBtn">Get Login Link</button>
+    </div>
+
+    <!-- Dashboard (hidden until login) -->
+    <div id="dashboard" class="hidden">
+      <h1>Daily Report</h1>
+      <div class="input-group">
+        <label>Time In</label>
+        <input type="time" id="timeIn">
+      </div>
+      <div class="input-group">
+        <label>Time Out</label>
+        <input type="time" id="timeOut">
+      </div>
+      <div class="input-group">
+        <label>Idlies Sold</label>
+        <input type="number" id="idliesSold" min="0" max="1000">
+      </div>
+      <div class="stats">
+        <p>Idlies Returned: <span id="idliesReturned">1000</span></p>
+        <p>Amount to Return: ₹<span id="amountToReturn">10000</span></p>
+      </div>
+      <button id="submitBtn">Submit</button>
+    </div>
+  </div>
+</body>
+</html>
