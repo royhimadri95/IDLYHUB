@@ -1,6 +1,6 @@
 // Initialize Supabase (replace with your keys later)
-const supabaseUrl =https://rsficxyvgjszmhbjcglb.supabase.co;
-const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJzZmljeHl2Z2pzem1oYmpjZ2xiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc5MDM4OTUsImV4cCI6MjA2MzQ3OTg5NX0.ZN7suQbI9ZN9JaowunSsKHNqNFu8cLVmyIDTQjHtVec;
+const supabaseUrl ='https//rsficxyvgjszmhbjcglb.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJzZmljeHl2Z2pzem1oYmpjZ2xiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc5MDM4OTUsImV4cCI6MjA2MzQ3OTg5NX0.ZN7suQbI9ZN9JaowunSsKHNqNFu8cLVmyIDTQjHtVec';
 const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
 // DOM Elements
@@ -20,12 +20,32 @@ idliesSoldInput.addEventListener('input', () => {
   amountToReturnSpan.textContent = returned * 10;
 });
 
-// Login with magic link
+// Login with magic link (NEW CODE - PASTE THIS)
 loginBtn.addEventListener('click', async () => {
   const email = document.getElementById('email').value;
-  const { error } = await supabase.auth.signInWithOtp({ email });
-  if (error) alert('Error: ' + error.message);
-  else alert('Check your email for login link!');
+  
+  // Debugging: Verify email is captured
+  console.log("Attempting login for:", email); 
+  
+  try {
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: {
+        emailRedirectTo: 'https://royhimadri95.github.io/IDLYHUB/'
+      }
+    });
+
+    if (error) {
+      console.error("Supabase error:", error);
+      alert(`Failed: ${error.message}\n(Check console for details)`);
+    } else {
+      console.log("Magic link sent successfully");
+      alert("Login link sent! Check your email AND spam folder.");
+    }
+  } catch (err) {
+    console.error("Critical error:", err);
+    alert("System error. Press F12 → Console for details.");
+  }
 });
 
 // Submit record
